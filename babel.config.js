@@ -6,11 +6,6 @@ module.exports = {
     ["import", {
       libraryName: "mand-mobile",
       libraryDirectory: "lib"
-    }],
-    ['import', {
-      libraryName: 'vant',
-      libraryDirectory: 'es',
-      style: true
-    },"vant"]
+    }]
   ]
 }

@@ -37,6 +37,7 @@ export default {};
     }
   }
   /deep/ .van-swipe__indicators {
+    left: auto;
     right: 0;
   }
 }
