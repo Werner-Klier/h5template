@@ -12,7 +12,7 @@
       <div class="content">
         <!-- banner区域的盒子 -->
         <div class="firstbox">
-          <MySwiper class="banner"/>
+          <MySwiper class="banner" />
           <van-grid class="vangrid" :border="false">
             <van-grid-item :icon="require('../assets/imgs/paipai.png')" text="拍拍" />
             <van-grid-item :icon="require('../assets/imgs/shangcheng.png')" text="商城" />
@@ -31,7 +31,7 @@
         <!-- 第二列盒子 -->
         <div class="secondbox">
           <!-- 限时拍 -->
-          <div class="head flexBetween">
+          <div class="head flexBetween flexCenter">
             <span class="title">拍你想拍</span>
             <span class="desc">意想不到的惊喜</span>
             <span class="more">更多拍卖</span>
@@ -127,8 +127,22 @@
           </div>
         </div>
         <!-- 优选好物 -->
-        <div class="goods">
-          
+        <div class="fourebox">
+          <div class="head flexBetween flexCenter">
+            <span class="title">拍你想拍</span>
+            <span class="desc">意想不到的惊喜</span>
+            <span class="more">更多拍卖</span>
+          </div>
+          <div class="products flex">
+            <div class="product flexcolumn" v-for="(v,i) in 3" :key="i">
+              <img src="../assets/imgs/product.png" alt />
+              <p class="name">这里是商品名称</p>
+              <div class="price flex">
+                <span class="unit">$</span>
+                <span class="num">39.7</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -138,15 +152,16 @@
 
 <script>
 import Recommend from "@/components/recommend";
-import MySwiper from "@/components/mySwiper"
+import MySwiper from "@/components/mySwiper";
 export default {
   name: "Home",
   components: {
-    Recommend,MySwiper
+    Recommend,
+    MySwiper,
   },
   data() {
     return {
-      isShow: true,
+      isShow: false,
       searchValue: "",
     };
   },
@@ -451,6 +466,71 @@ export default {
                 .num {
                   font-size: 14px;
                 }
+              }
+            }
+          }
+        }
+      }
+      .fourebox {
+        background: #ffffff;
+        box-shadow: 0px 2px 4px 0px rgba(196, 196, 196, 0.35);
+        border-radius: 5px;
+        padding: 15px 6px 20px 6px;
+        margin-top: 7px;
+        .head {
+          .title {
+            font-size: 14px;
+            font-family: PingFang SC;
+            font-weight: bold;
+            color: #000000;
+          }
+          .desc {
+            flex: 1;
+            margin-left: 13px;
+          }
+          .desc,
+          .more {
+            font-size: 12px;
+            font-family: PingFang SC;
+            font-weight: 500;
+            color: #484848;
+            opacity: 0.5;
+          }
+          .more {
+            margin-right: 18px;
+            &:active {
+              font-size: 13px;
+            }
+          }
+        }
+        .products {
+          margin-top: 24px;
+          .product:not(:first-of-type) {
+            margin-left: 2px;
+          }
+          .product {
+            flex: 1;
+            img {
+              width: 100%;
+              height: 121px;
+              border-radius: 8px;
+            }
+            .name {
+              font-size: 12px;
+              margin-top: 7px;
+              font-weight: 500;
+              color: #1a1a1a;
+            }
+            .price {
+              margin-top: 7px;
+              font-size: 14px;
+              font-weight: bold;
+              color: #ec4f48;
+              .unit{
+                display: inline-block;
+                font-size: 12px;
+                transform: scale(0.8);
+                transform-origin: left bottom;
               }
             }
           }
