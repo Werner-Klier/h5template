@@ -9,11 +9,10 @@ import "@/assets/css/public.less";
 import "normalize.css"
 
 // vantui
-import { Grid, GridItem,Image } from 'vant';
-let RegistCom = {Grid, GridItem,Image};
-for (const v in RegistCom) {
-  Vue.use(RegistCom[v])
-}
+import Vant from 'vant';
+import 'vant/lib/index.css';
+
+Vue.use(Vant);
 
 
 

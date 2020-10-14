@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="searchbox flexBetween">
+    <div class="searchbox">
       <div class="search">
         <input type="text" placeholder="输入商品关键词或用户名" />
         <img src="../assets/imgs/search.png" alt />
@@ -12,7 +12,7 @@
       <div class="content">
         <!-- banner区域的盒子 -->
         <div class="firstbox">
-          <img src="../assets/imgs/banner.png" alt class="banner" />
+          <MySwiper class="banner"/>
           <van-grid class="vangrid" :border="false">
             <van-grid-item :icon="require('../assets/imgs/paipai.png')" text="拍拍" />
             <van-grid-item :icon="require('../assets/imgs/shangcheng.png')" text="商城" />
@@ -108,18 +108,18 @@
                 <p class="name">这里是商品名称</p>
                 <p class="desc">商品介绍</p>
                 <div class="price">
-                  <span class="unit">$ </span>
+                  <span class="unit">$</span>
                   <span class="num">39.9</span>
                 </div>
               </div>
             </div>
             <div class="product">
               <img src="../assets/imgs/product.png" alt />
-               <div class="context">
+              <div class="context">
                 <p class="name">这里是商品名称</p>
                 <p class="desc">商品介绍</p>
                 <div class="price">
-                  <span class="unit">$ </span>
+                  <span class="unit">$</span>
                   <span class="num">39.9</span>
                 </div>
               </div>
@@ -128,7 +128,7 @@
         </div>
         <!-- 优选好物 -->
         <div class="goods">
-
+          
         </div>
       </div>
     </div>
@@ -138,10 +138,11 @@
 
 <script>
 import Recommend from "@/components/recommend";
+import MySwiper from "@/components/mySwiper"
 export default {
   name: "Home",
   components: {
-    Recommend,
+    Recommend,MySwiper
   },
   data() {
     return {
@@ -167,11 +168,13 @@ export default {
     background: linear-gradient(90deg, #e9593f, #ed7e59);
     padding: 0 12px;
     align-items: center;
+    display: flex;
     .search {
       position: relative;
+      flex: 1;
       input {
         height: 32px;
-        width: 322px;
+        width: 100%;
         background: #ffffff;
         border-radius: 16px;
         text-indent: 35px;
@@ -189,6 +192,7 @@ export default {
     .message {
       width: 17px;
       height: 17px;
+      margin-left: 8px;
     }
   }
   .mian {
@@ -205,6 +209,7 @@ export default {
       border-radius: 0 0 28px 28px;
     }
     .content {
+      width: 100%;
       height: 1800px;
       padding: 0 12px;
       position: absolute;
@@ -215,9 +220,7 @@ export default {
         box-shadow: 0px 2px 4px 0px rgba(196, 196, 196, 0.35);
         background: #fff;
         .banner {
-          border-radius: 5px;
-          width: 100%;
-          height: 150px;
+          box-shadow: 0px 2px 4px 0px rgba(196, 196, 196, 0.35);
         }
         .vangrid {
           /deep/ .van-grid-item {
@@ -411,12 +414,14 @@ export default {
         }
         .products {
           display: flex;
-          justify-content: space-between;
           padding: 0 6px;
           position: sticky;
           margin-top: -34px;
+          .product:not(:first-of-type) {
+            margin-left: 4px;
+          }
           .product {
-            width: 167px;
+            flex: 1;
             box-shadow: 0px 1px 4px 0px rgba(196, 196, 196, 0.35);
             border-radius: 8px;
             overflow: hidden;
@@ -436,16 +441,16 @@ export default {
                 color: #333333;
                 margin: 7px 0;
               }
-              .price{
-                  color: #EC4F48;
-                  .unit{
-                    font-size: 11px;
-                    display: inline-block;
-                    transform: scale3d(0.8);
-                  }
-                  .num{
-                    font-size: 14px;
-                  }
+              .price {
+                color: #ec4f48;
+                .unit {
+                  font-size: 11px;
+                  display: inline-block;
+                  transform: scale3d(0.8);
+                }
+                .num {
+                  font-size: 14px;
+                }
               }
             }
           }
