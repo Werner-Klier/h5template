@@ -1,0 +1,52 @@
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexAlign {
+  display: flex;
+  align-items: center;
+}
+
+.flexBetween {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rightCenter {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+/*纵向flex*/
+.flexcolumn {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 左右留白 */
+.lrweight {
+  padding: 0 33rpx;
+}
+
+/*字体颜色白色*/
+.color_f {
+  color: #ffffff;
+}
+
+// 通用点击
+.clickbg {
+  &:active {
+    opacity: 0.5;
+    transition: 0.1s;
+  }
+}
+
+input {
+  background: none;
+  outline: none;
+  border: 0px;
+}
