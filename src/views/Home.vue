@@ -144,6 +144,32 @@
             </div>
           </div>
         </div>
+        <!-- 猜你喜欢 -->
+        <div class="tag flexCenter">
+          <img src="@/assets/imgs/aixin.png" alt />
+          <span>猜你喜欢</span>
+        </div>
+        <van-list
+          class="vanlist"
+          v-model="loading"
+          :finished="finished"
+          finished-text="没有更多了"
+          @load="onLoad"
+        >
+          <div v-for="item in list" :key="item" class="likegoods flexcolumn">
+            <img src="../assets/imgs/product.png" alt />
+            <div class="info">
+              <p class="name">这里是商品名称</p>
+              <p class="desc">商品介绍</p>
+              <div class="price flex">
+                <span class="unit">$</span>
+                <span class="num">39.7</span>
+              </div>
+            </div>
+          </div>
+        </van-list>
+        <!-- 底部留白 -->
+        <div class="null"></div>
       </div>
     </div>
     <Recommend class="meng" v-if="isShow" @close="close"></Recommend>
@@ -163,11 +189,31 @@ export default {
     return {
       isShow: false,
       searchValue: "",
+      list: [],
+      loading: false,
+      finished: false,
     };
   },
   methods: {
     close() {
       this.isShow = false;
+    },
+    onLoad() {
+      // 异步更新数据
+      // setTimeout 仅做示例，真实场景中一般为 ajax 请求
+      setTimeout(() => {
+        for (let i = 0; i < 6; i++) {
+          this.list.push(this.list.length + 1);
+        }
+
+        // 加载状态结束
+        this.loading = false;
+
+        // 数据全部加载完成
+        if (this.list.length >= 10) {
+          this.finished = true;
+        }
+      }, 1000);
     },
   },
 };
@@ -225,7 +271,7 @@ export default {
     }
     .content {
       width: 100%;
-      height: 1800px;
+      // height: 1800px;
       padding: 0 12px;
       position: absolute;
       top: 14px;
@@ -526,7 +572,7 @@ export default {
               font-size: 14px;
               font-weight: bold;
               color: #ec4f48;
-              .unit{
+              .unit {
                 display: inline-block;
                 font-size: 12px;
                 transform: scale(0.8);
@@ -534,6 +580,80 @@ export default {
               }
             }
           }
+        }
+      }
+      .tag {
+        margin: 15px 0;
+        img {
+          width: 20px;
+          height: 20px;
+        }
+        span {
+          margin-left: 5px;
+          font-weight: bold;
+          color: #ec4f48;
+          font-size: 14px;
+        }
+      }
+      .vanlist {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        @media screen and (max-width: 374px) {
+          .likegoods {
+            width: 160px !important;
+          }
+        }
+        @media screen and (min-width: 500px) {
+          .likegoods {
+            margin: 4px 4px!important;
+          }
+        }
+        .likegoods {
+          width: 173px;
+          margin-top: 7px;
+          box-shadow: 0px 1px 4px 0px rgba(196, 196, 196, 0.35);
+          border-radius: 8px;
+          background: #ffffff;
+          overflow: hidden;
+          &:not(:nth-of-type(2n + 1)) {
+            margin-left: 4px;
+          }
+          img {
+            width: 100%;
+            height: 172px;
+          }
+          .info {
+            padding: 7px 6px;
+            .name {
+              font-size: 12px;
+              font-weight: 500;
+              color: #1a1a1a;
+            }
+            .desc {
+              margin-top: 9px;
+              font-size: 11px;
+              font-weight: 500;
+              color: #000000;
+              opacity: 0.5;
+            }
+            .price {
+              margin-top: 12px;
+              font-size: 14px;
+              font-weight: bold;
+              color: #ec4f48;
+              .unit {
+                display: inline-block;
+                font-size: 12px;
+                transform: scale(0.8);
+                transform-origin: left bottom;
+              }
+            }
+          }
+        }
+        /deep/.van-list__finished-text {
+          position: absolute;
+          bottom: 0;
         }
       }
     }
