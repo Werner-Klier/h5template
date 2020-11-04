@@ -16,13 +16,6 @@ import 'vant/lib/index.css';
 Vue.use(Vant);
 
 
-
-
-
-//公用按钮组件
-import PubButton from "@/components/pubButton.vue"
-Vue.component('PubButton', PubButton)
-
 Vue.config.productionTip = false
 
 new Vue({
