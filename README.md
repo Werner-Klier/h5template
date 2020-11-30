@@ -24,5 +24,15 @@ yarn test
 getStateInfo: (params = {}) => http.get("/userinfo/get", params,{loading: true}),
 ```
 
+### 设计稿大小
+```
+在postcss.config.js中设置你的设计稿大小和rem比例
+```
+
+### 接口调用
+```
+this.$api.接口名称.then().catch()
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
