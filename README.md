@@ -1,18 +1,22 @@
 #一个封装好的基于vue2.x+vant+promise的前端通用框架，下载即用
 
-## Project setup
+## 安装依赖
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### 运行服务
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+### 打包
 ```
 yarn build
+```
+### 测试服包
+```
+yarn test
 ```
 
 ### Customize configuration
