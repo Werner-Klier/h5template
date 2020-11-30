@@ -19,5 +19,10 @@ yarn build
 yarn test
 ```
 
+### 请求loading的使用,不加{loading: true}默认为false
+```
+getStateInfo: (params = {}) => http.get("/userinfo/get", params,{loading: true}),
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
