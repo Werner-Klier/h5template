@@ -8,7 +8,7 @@ import "@/assets/css/public.less";
 //引入样式清空表
 import "normalize.css"
 import "reset-css"
-
+import 'amfe-flexible' //rem
 // vantui
 import Vant from 'vant';
 import 'vant/lib/index.css';
