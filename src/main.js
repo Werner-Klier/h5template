@@ -15,6 +15,13 @@ import 'vant/lib/index.css';
 
 Vue.use(Vant);
 
+// 集中管理api
+import api from "@/api/index.js";
+Vue.use(api);
+
+import moment from "moment"
+Vue.prototype.formatDate = (time) => moment(time).format('MM-DD HH:mm')
+Vue.prototype.formatTime = (time) => moment(time).format('HH:mm:ss')
 
 Vue.config.productionTip = false
 
