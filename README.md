@@ -1,4 +1,4 @@
-# papai-h5
+#一个封装好的基于vue2.x+vant+promise的前端通用框架，下载即用
 
 ## Project setup
 ```
@@ -17,6 +17,3 @@ yarn build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-# paipai_h5
-
-拍拍前端
