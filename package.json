@@ -9,7 +9,7 @@
     "publish": "vue-cli-service build && vue-cli-service build --mode=test"
   },
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "mand-mobile": "^2.5.13",
     "normalize.css": "^8.0.1",
